@@ -15,9 +15,9 @@ def load_config(config_path):
         exit("{} doesn't exists. Please create config file!".format(config_path))
 
     try:
-        contents = yaml.load(file, Loader=yaml.FullLoader)
+        contents = yaml.load(file, Loader=yaml.SafeLoader)
     except:
-        contents = yaml.load(file)
+        contents = yaml.safe_load(file)
     return contents
 
 
